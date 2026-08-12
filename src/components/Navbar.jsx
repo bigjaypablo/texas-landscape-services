@@ -20,6 +20,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
     { label: 'Services', href: '/services' },
     { label: 'About', href: '/about' },
     { label: 'Gallery', href: '/gallery' },
+    { label: 'FAQ', href: '/faq' },
     { label: 'Contact', href: '/contact' },
   ]
 
@@ -58,7 +59,6 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
             />
           </Link>
 
-          {/* Desktop Navigation - Shows on medium screens and up (768px) */}
           <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
             {navItems.map((item) => (
               <Link
@@ -76,7 +76,6 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
             </Link>
           </nav>
 
-          {/* Mobile Menu Button - Only visible on small screens */}
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)} 
             className="md:hidden p-1.5 transition-colors"
@@ -91,7 +90,6 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
         </div>
       </div>
 
-      {/* Mobile Menu - Only visible on small screens */}
       <div 
         className={`md:hidden fixed inset-0 top-16 bg-white shadow-xl transition-all duration-300 ${
           isMenuOpen ? 'opacity-100 pointer-events-auto translate-x-0' : 'opacity-0 pointer-events-none translate-x-full'

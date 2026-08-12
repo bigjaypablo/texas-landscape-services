@@ -73,6 +73,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li><Link to="/about" className="text-sm text-white/40 hover:text-white transition-colors">About</Link></li>
               <li><Link to="/gallery" className="text-sm text-white/40 hover:text-white transition-colors">Gallery</Link></li>
+              <li><Link to="/faq" className="text-sm text-white/40 hover:text-white transition-colors">FAQ</Link></li>
               <li><Link to="/contact" className="text-sm text-white/40 hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
@@ -87,7 +88,7 @@ const Footer = () => {
               ))}
             </div>
             <div className="mt-4 text-xs text-white/20">
-              <p>Click "View Full Map" below to see our service area</p>
+              <p>Serving North Dallas–Fort Worth</p>
             </div>
           </div>
         </div>
@@ -98,6 +99,8 @@ const Footer = () => {
             <Link to="/privacy" className="hover:text-white/40 transition-colors">Privacy Policy</Link>
             <span className="w-px h-4 bg-white/10" />
             <Link to="/terms" className="hover:text-white/40 transition-colors">Terms of Service</Link>
+            <span className="w-px h-4 bg-white/10" />
+            <Link to="/faq" className="hover:text-white/40 transition-colors">FAQ</Link>
           </div>
         </div>
       </div>

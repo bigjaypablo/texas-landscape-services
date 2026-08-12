@@ -11,6 +11,7 @@ import Gallery from './pages/Gallery'
 import Contact from './pages/Contact'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService'
+import FAQ from './pages/FAQ'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -39,6 +40,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsOfService />} />
+          <Route path="/faq" element={<FAQ />} />
         </Routes>
         <Footer />
         <FloatingContact />
