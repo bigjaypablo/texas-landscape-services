@@ -21,11 +21,7 @@ const Footer = () => {
             <img 
               src="/TLS-newlogo.png" 
               alt="Texas Landscape Services" 
-              className="h-20 w-auto object-contain mb-4 logo-white-bg"
-              style={{
-                mixBlendMode: 'multiply',
-                filter: 'contrast(1.1) brightness(1.05)',
-              }}
+              className="h-20 w-auto object-contain mb-4"
             />
             <p className="text-sm text-white/40 mt-2 leading-relaxed">
               Professional commercial and residential landscape management across North Dallas–Fort Worth.
@@ -90,19 +86,8 @@ const Footer = () => {
                 </span>
               ))}
             </div>
-            <div className="mt-4">
-              <div className="w-full h-32 overflow-hidden rounded bg-white/5">
-                <iframe
-                  src="https://www.google.com/maps/embed/v1/place?q=Frisco+Plano+McKinney+Denton+Prosper+Little+Elm+Celina+TX&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Texas Landscape Services Service Area Map"
-                ></iframe>
-              </div>
+            <div className="mt-4 text-xs text-white/20">
+              <p>Click "View Full Map" below to see our service area</p>
             </div>
           </div>
         </div>
