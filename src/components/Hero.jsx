@@ -44,7 +44,9 @@ const Hero = () => {
         <video ref={videoRef} className="absolute inset-0 w-full h-full object-cover object-center" muted loop playsInline autoPlay preload="auto" onLoadedData={() => setIsVideoLoaded(true)}>
           <source src="/videos/hero-bg.mp4" type="video/mp4" />
         </video>
-        {/* Subtle gradient overlay for better text readability - reduced opacity */}
+        {/* Header overlay - only affects the top portion for logo visibility */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-transparent" />
+        {/* Subtle gradient for better text readability */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/10" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-transparent" />
       </div>
