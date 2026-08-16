@@ -78,7 +78,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
 
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)} 
-            className="md:hidden p-1.5 transition-colors"
+            className="md:hidden p-1.5 transition-colors relative z-50"
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           >
             {isMenuOpen ? (
@@ -90,42 +90,68 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
         </div>
       </div>
 
+      {/* Mobile Menu - Glassmorphism sliding from right */}
       <div 
-        className={`md:hidden fixed inset-0 top-16 bg-white shadow-xl transition-all duration-300 ${
-          isMenuOpen ? 'opacity-100 pointer-events-auto translate-x-0' : 'opacity-0 pointer-events-none translate-x-full'
+        className={`md:hidden fixed inset-0 top-0 transition-all duration-500 ease-in-out ${
+          isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
-        <div className="container-premium py-6">
-          <nav className="flex flex-col space-y-1">
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                to={item.href}
-                onClick={() => setIsMenuOpen(false)}
-                className={`text-base font-body font-medium py-3 px-4 rounded-lg hover:bg-garden-green/5 transition-colors ${
-                  isActive(item.href) ? 'text-garden-green bg-garden-green/5' : 'text-garden-dark'
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-          
-          <div className="mt-6 pt-6 border-t border-garden-border/50 space-y-3">
-            <Link
-              to="/contact"
+        {/* Backdrop with blur */}
+        <div 
+          className={`absolute inset-0 bg-black/30 backdrop-blur-sm transition-opacity duration-500 ${
+            isMenuOpen ? 'opacity-100' : 'opacity-0'
+          }`}
+          onClick={() => setIsMenuOpen(false)}
+        />
+        
+        {/* Menu Panel - Slides from right */}
+        <div 
+          className={`absolute top-0 right-0 h-full w-4/5 max-w-sm bg-white/90 backdrop-blur-xl shadow-2xl transition-all duration-500 ease-out ${
+            isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
+        >
+          <div className="flex flex-col h-full pt-20 px-6 pb-8">
+            {/* Close button inside menu */}
+            <button 
               onClick={() => setIsMenuOpen(false)}
-              className="btn-primary w-full text-center text-sm py-3"
+              className="absolute top-4 right-4 p-2 text-garden-dark hover:text-garden-green transition-colors"
             >
-              Book Now
-            </Link>
-            <a
-              href="tel:4694559733"
-              className="flex items-center justify-center space-x-2 text-garden-dark font-body text-sm py-2"
-            >
-              <Phone size={16} />
-              <span>469-455-9733</span>
-            </a>
+              <X size={24} />
+            </button>
+            
+            <nav className="flex flex-col space-y-2 flex-1">
+              {navItems.map((item) => (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`text-lg font-body font-medium py-3 px-4 rounded-lg transition-colors ${
+                    isActive(item.href) 
+                      ? 'text-garden-green bg-garden-green/5' 
+                      : 'text-garden-dark hover:bg-garden-green/5'
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+            
+            <div className="pt-6 border-t border-garden-border/30 space-y-3">
+              <Link
+                to="/contact"
+                onClick={() => setIsMenuOpen(false)}
+                className="btn-primary w-full text-center text-sm py-3"
+              >
+                Book Now
+              </Link>
+              <a
+                href="tel:4694559733"
+                className="flex items-center justify-center space-x-2 text-garden-dark font-body text-sm py-2"
+              >
+                <Phone size={16} />
+                <span>469-455-9733</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
